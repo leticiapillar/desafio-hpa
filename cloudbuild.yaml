@@ -1,0 +1,9 @@
+steps:
+
+- id: "Go mod init"
+  name: 'golang'
+  args: ['go', 'mod', 'init', 'github.com/leticiapillar/desafio-hpa']
+
+- id: "Go test"
+  name: 'golang'
+  args: ['go', 'test', '-v', 'src/raiz/main_test.go', 'src/raiz/main.go']

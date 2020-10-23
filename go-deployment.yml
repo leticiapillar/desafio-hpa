@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-hpa
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: go-hpa
+  template:
+    metadata:
+      labels:
+        name: go-hpa
+    spec:
+      containers:
+      - name: application
+        image: leticiapillar/go-hpa
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8000
+        
+        resources:
+          requests:
+            cpu: "50m"
+          limits:
+            cpu: "100m"
